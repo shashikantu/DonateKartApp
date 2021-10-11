@@ -3,10 +3,35 @@
 
 // Write your JavaScript code.
 
+var exchangeRate;
+var XSRFToken = $("input[name='__RequestVerificationToken']").val();
 $("#currency").on("change", function () {
-    
 
+    var value = $("#currency").val();
+ 
+    $.ajax({
+        type: "GET",
+        url: 'Home/GetExchangeRate',
+        data: { 'currency': value},
+        success: function (response) {
+            ChangePrice(response);
+        }
+    })
+
+   
 })
+
+function ChangePrice(data) {
+    var shoesprice = $("#shoes").text() / data;
+    var batprice = $("#bat").text() / data;
+    var ballprice = $("#ball").text() / data;
+
+
+    $("#shoes").text(shoesprice.toFixed(2));
+    $("#bat").text(batprice.toFixed(2));
+    $("#ball").text(ballprice.toFixed(2));
+
+}
 
 $(document).ready(function () {
     GetShoesPrice();

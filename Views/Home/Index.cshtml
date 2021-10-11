@@ -1,22 +1,24 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-   @model List<ProductModel>
+    @model List<ProductModel>
+
 }
 
+@Html.AntiForgeryToken()
 <div class="text-center">
     <div class="col-md-6" style="float:left ;width:25% ;height:50px">
-        <img src="~/image/ball.jfif"/>
+        <img src="~/image/ball.jfif" />
         <div>
             <label>ball</label>
             <label id="ball"></label>
         </div>
-        
+
     </div>
     <div class="col-md-6" style="float: left; width: 25%; height: 50px">
         <img src="~/image/bat.jfif" />
         <div>
             <label>bat</label>
-            <label id="bat" ></label>
+            <label id="bat"></label>
         </div>
     </div>
     <div class="col-md-6" style="float: left; width: 25%; height: 50px">
@@ -27,8 +29,8 @@
         </div>
     </div>
     <div class="col-md-6" style="float: left; width: 25%; height: 50px">
-        <label for="cars"> Currency:</label>
-        <select name="cars" id="currency">
+        <label for="Currency"> Currency:</label>
+        <select name="Currency" id="currency">
             <option value="INR">INR</option>
             <option value="USD">USD</option>
         </select>
